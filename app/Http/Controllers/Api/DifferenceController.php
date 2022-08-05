@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Traits\HandleApiResponse;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class DifferenceController extends Controller
         $firstList = $request['first_list']?:[];
         $secondList = $request['second_list']?:[];
 
-        return $this->successResponse($this->arrayDiff($firstList , $secondList) , 'This is a difference between two lists');
+        return $this->successResponse( 'Difference' ,$this->arrayDiff($firstList , $secondList) , 'This is a difference between two lists');
 
     }
 

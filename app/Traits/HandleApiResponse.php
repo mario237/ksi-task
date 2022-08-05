@@ -7,12 +7,12 @@ use Illuminate\Http\JsonResponse;
 trait HandleApiResponse
 {
 
-    public function successResponse($data , $message = ''): JsonResponse
+    public function successResponse($key , $data , $message = ''): JsonResponse
     {
         return response()->json([
             'success' => true,
             'message' => $message,
-            'data' => $data
+            $key => $data
         ]);
     }
 
@@ -21,8 +21,10 @@ trait HandleApiResponse
     {
         return response()->json([
             'success' => false,
-            'error' => $message,
+            'errors' => $message,
             'code' => $code
         ] , $code);
     }
+
+
 }
