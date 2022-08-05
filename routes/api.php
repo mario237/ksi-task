@@ -18,4 +18,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('get-difference' , [\App\Http\Controllers\DifferenceController::class , 'getDifferenceOfTwoLists']);
+Route::post('get-difference' , [\App\Http\Controllers\Api\DifferenceController::class , 'getDifferenceOfTwoLists']);
+
+
+Route::resource('entries' , \App\Http\Controllers\Api\EntriesController::class);
+Route::resource('cities' , \App\Http\Controllers\Api\CitiesController::class);
